@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     //defining score
     public int scrollScore;
+    //red scroll variable
+    public int redScroll;
 
     //so that it can be called in other scripts
     public static GameManager Instance;
@@ -53,12 +55,30 @@ public class GameManager : MonoBehaviour
                 totalScroll = scrollScore;
             }
             
-            displayText.text = "Scroll Score: " + scrollScore + " Total Scrolls: " + totalScroll;
         }
         //return and store the variable
         get
         {
             return scrollScore;
+        }
+    }
+    
+    //property of redScroll variable
+    public int RedScroll
+    {
+        set
+        {
+            redScroll = value;
+            
+            if (redScroll > totalScroll)
+            {
+                totalScroll += redScroll;
+            }
+            
+        }
+        get
+        {
+            return redScroll;
         }
     }
     
@@ -106,7 +126,8 @@ public class GameManager : MonoBehaviour
             
             displayText = GameObject.Find("ScoreDisplay").GetComponent<TextMeshProUGUI>();
             
-            displayText.text = "Scroll Score: " + scrollScore + " Total Scrolls: " + totalScroll;
+            displayText.text = "Soul Scrolls: " + scrollScore + " See Red Scrolls: " + redScroll + 
+                               " Total Scrolls: " + totalScroll;
             
             Debug.Log(Application.dataPath);
             
@@ -124,12 +145,7 @@ public class GameManager : MonoBehaviour
    
     void Update()
     {
-        //if scrollScore equals targetScroll, go to the next level
-       /* if (targetScroll == scrollScore)
-        {
-            targetScroll += 1;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            scrollScore = 0;
-        }*/
+        displayText.text = "Soul Scrolls: " + scrollScore + " See Red Scrolls: " + redScroll + 
+                           " Total Scrolls: " + totalScroll;
     }
 }

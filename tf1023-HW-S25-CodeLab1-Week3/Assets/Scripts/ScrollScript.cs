@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShowText : MonoBehaviour
+public class ScrollScript : MonoBehaviour
 {
    void OnTriggerEnter(Collider other)
    {
