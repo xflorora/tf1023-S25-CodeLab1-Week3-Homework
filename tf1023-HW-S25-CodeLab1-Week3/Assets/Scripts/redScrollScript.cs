@@ -8,8 +8,7 @@ public class redScrollScript : MonoBehaviour
         {
             //if player collides with scroll object, increase scrollScore
             GameManager.Instance.RedScroll++;
-            GameManager.Instance.TotalScroll++;
-
+            GameManager.Instance.totalScroll++;
             Destroy(this.gameObject);
         }
     }

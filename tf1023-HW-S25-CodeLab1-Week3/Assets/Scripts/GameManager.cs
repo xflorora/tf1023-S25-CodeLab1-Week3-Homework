@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public int targetScroll = 1;
     
     //my version of high score
-    private int totalScroll;
+    public int totalScroll;
 
     private TextMeshProUGUI displayText;
     
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     private string filePathTotalScroll;
     private const string DirName = "/Data/";
     const string FileName = DirName + "totalScroll.txt";
-    //string dirLocation = Application.dataPath + DirName;
 
     //property of scrollScore variable
     //set and get: basically now these things are only checked / changed when the score is changed instead of every frame.
@@ -45,15 +44,15 @@ public class GameManager : MonoBehaviour
             if (targetScroll == scrollScore)
             {
                 targetScroll += 1;
-                totalScroll += scrollScore;
+               // totalScroll += scrollScore;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 scrollScore = 0;
             }
 
-            if (scrollScore > totalScroll)
+           /* if (scrollScore > totalScroll)
             {
                 totalScroll = scrollScore;
-            }
+            }*/
             
         }
         //return and store the variable
@@ -69,11 +68,6 @@ public class GameManager : MonoBehaviour
         set
         {
             redScroll = value;
-            
-            if (redScroll > totalScroll)
-            {
-                totalScroll += redScroll;
-            }
             
         }
         get
