@@ -8,9 +8,9 @@ using File = System.IO.File;
 
 public class GameManager : MonoBehaviour
 {
-    //defining score
+    //defining score - base score, the soul scrolls (required to progress to next level)
     public int scrollScore;
-    //red scroll variable
+    //red scroll variable (not required but adds to poem)
     public int redScroll;
 
     //so that it can be called in other scripts
@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
     
     //my version of high score
     public int totalScroll;
-
+    
+    //for text to be displayed
     private TextMeshProUGUI displayText;
     
     //save files
@@ -31,7 +32,8 @@ public class GameManager : MonoBehaviour
     const string FileName = DirName + "totalScroll.txt";
 
     //property of scrollScore variable
-    //set and get: basically now these things are only checked / changed when the score is changed instead of every frame.
+    //set and get: basically now these things are only checked /
+    //changed when the score is changed instead of every frame.
     //code is more efficient and legible
     public int ScrollScore
     {
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour
                 scrollScore = 0;
             }
 
-           /* if (scrollScore > totalScroll)
+            /* if (scrollScore > totalScroll)
             {
                 totalScroll = scrollScore;
             }*/
@@ -102,7 +104,6 @@ public class GameManager : MonoBehaviour
                 string FileContents = File.ReadAllText(filePathTotalScroll);
                 totalScroll = int.Parse(FileContents);
             }
-            
             return totalScroll;
         }
     }
