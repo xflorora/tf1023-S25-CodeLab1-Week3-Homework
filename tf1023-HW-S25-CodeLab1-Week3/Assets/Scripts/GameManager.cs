@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public int targetScroll = 1;
     
     //my version of high score
-    public int totalScroll;
+    private int totalScroll;
     
     //for text to be displayed
     private TextMeshProUGUI displayText;
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
             if (targetScroll == scrollScore)
             {
                 targetScroll += 1;
-               // totalScroll += scrollScore;
+               //totalScroll += scrollScore;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 scrollScore = 0;
             }
@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     }
     
     //property of totalScroll variable
+    //TODO fix this
     public int TotalScroll
     {
         set
