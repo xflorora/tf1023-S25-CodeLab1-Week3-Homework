@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         {
             totalScroll = value;
 
-            if (!File.Exists(filePathTotalScroll))
+          /*  if (!File.Exists(filePathTotalScroll))
             {
                 string dirLocation = Application.dataPath + DirName;
                 if (!Directory.Exists(dirLocation))
@@ -95,16 +95,16 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            File.WriteAllText(filePathTotalScroll, scrollScore + "");
+            File.WriteAllText(filePathTotalScroll, scrollScore + "");*/
         }
 
         get
         {
-            if (File.Exists(filePathTotalScroll))
+            /*if (File.Exists(filePathTotalScroll))
             {
                 string FileContents = File.ReadAllText(filePathTotalScroll);
                 totalScroll = int.Parse(FileContents);
-            }
+            }*/
             return totalScroll;
         }
     }
@@ -121,9 +121,9 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
             
             displayText = GameObject.Find("ScoreDisplay").GetComponent<TextMeshProUGUI>();
-            
+            //this gets replaced immediately by update
             displayText.text = "Soul Scrolls: " + scrollScore + " See Red Scrolls: " + redScroll + 
-                               " Total Scrolls: " + totalScroll;
+                               " Total Scrolls: " + (scrollScore + redScroll);
             
             Debug.Log(Application.dataPath);
             
@@ -142,6 +142,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         displayText.text = "Soul Scrolls: " + scrollScore + " See Red Scrolls: " + redScroll + 
-                           " Total Scrolls: " + totalScroll;
+                           " Total Scrolls: " + TotalScroll;
     }
 }
